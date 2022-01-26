@@ -4,7 +4,7 @@ love.keyboard.setKeyRepeat( true )
 local parse = require "parse"
 
 local gui = {}
-local width, height = love.window.getDimensions()
+local width, height = love.graphics.getWidth(), love.graphics.getHeight()
 local boxWidth, boxHeight, boxPadding, boxInternalHeight = 0, 0, 5, 0
 local input, inputWidth, inputHeight, inputPadding, inputTextHeight, inputHeaderHeight, inputHeaderText = nil, 0, 0, 10, 30, 40, "Please enter a number:"
 local speedControlInput
@@ -129,28 +129,28 @@ boxHeight = ( dimensions.box_area.height - boxPadding ) / 10 - boxPadding
 boxInternalHeight = boxHeight - 2 * boxPadding
 
 colours = {
-	background = { 245, 245, 245 };
-	header = { 180, 180, 180 };
-	header_text = { 0, 0, 0, 200 };
-	sidebar = { 230, 230, 230 };
-	code = { 255, 255, 255 };
-	code_text = { 0, 0, 0, 130 };
-	box_area = { 245, 245, 245 };
-	box = { 255, 255, 255 };
-	box_active = { 230, 230, 50 };
-	box_text = { 0, 0, 0, 170 };
-	footer = { 180, 180, 180 };
-	footer_text = { 0, 0, 0, 200 };
-	output = { 245, 245, 245 };
-	output_text = { 0, 0, 0, 130 };
-	input = { 200, 200, 200 };
-	input_header = { 180, 180, 180 };
-	input_header_text = { 0, 0, 0, 200 };
-	input_box = { 255, 255, 255 };
-	input_box_text = { 0, 0, 0, 170 };
-	button = { 50, 120, 190 };
-	button_text = { 255, 255, 255, 255 };
-	log_text = { 0, 0, 0, 200 };
+	background = { 245 / 255, 245 / 255, 245 / 255 };
+	header = { 180 / 255, 180 / 255, 180 / 255 };
+	header_text = { 0 / 255, 0 / 255, 0 / 255, 200 / 255 };
+	sidebar = { 230 / 255, 230 / 255, 230 / 255 };
+	code = { 255 / 255, 255 / 255, 255 / 255 };
+	code_text = { 0 / 255, 0 / 255, 0 / 255, 130 / 255 };
+	box_area = { 245 / 255, 245 / 255, 245 / 255 };
+	box = { 255 / 255, 255 / 255, 255 / 255 };
+	box_active = { 230 / 255, 230 / 255, 50 / 255 };
+	box_text = { 0 / 255, 0 / 255, 0 / 255, 170 / 255 };
+	footer = { 180 / 255, 180 / 255, 180 / 255 };
+	footer_text = { 0 / 255, 0 / 255, 0 / 255, 200 / 255 };
+	output = { 245 / 255, 245 / 255, 245 / 255 };
+	output_text = { 0 / 255, 0 / 255, 0 / 255, 130 / 255 };
+	input = { 200 / 255, 200 / 255, 200 / 255 };
+	input_header = { 180 / 255, 180 / 255, 180 / 255 };
+	input_header_text = { 0 / 255, 0 / 255, 0 / 255, 200 / 255 };
+	input_box = { 255 / 255, 255 / 255, 255 / 255 };
+	input_box_text = { 0 / 255, 0 / 255, 0 / 255, 170 / 255 };
+	button = { 50 / 255, 120 / 255, 190 / 255 };
+	button_text = { 255 / 255, 255 / 255, 255 / 255, 255 / 255 };
+	log_text = { 0 / 255, 0 / 255, 0 / 255, 200 / 255 };
 }
 
 fonts = {
@@ -374,7 +374,7 @@ function gui.log( text )
 end
 
 function gui.mousepressed( x, y, button )
-	if button ~= "l" then
+	if button ~= 1 then
 		return
 	end
 
